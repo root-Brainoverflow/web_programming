@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-user_name = None
+user_name = "Woojin Jeon"
 
 @app.post("/user")
 def create_item(user: user_name):
