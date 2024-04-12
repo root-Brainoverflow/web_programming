@@ -8,7 +8,7 @@ app = FastAPI()
 user_name = None
 
 @app.post("/user")
-def create_item(user: name):
+def create_item(user: user_name):
     user_name = user.name
     return { "message": f"Your name is {user_name}!"}
 
@@ -17,7 +17,7 @@ def get_item():
     return {"message": f"Hey, your name is {user_name}!"}
 
 @app.put("/user")
-def update_item(user: name):
+def update_item(user: user_name):
     user_name = user.name
     return {"message": f"Your name is now {user_name}!"}
 
