@@ -5,19 +5,23 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Union[bool, None] = None
+user_name = None
 
-@app.get("/")
-def root():
-    return { "Hello": "World" }
+@app.post("/user")
+def create_item(user: name):
+    user_name = user.name
+    return { "message": f"Your name is {user_name}!"}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/user")
+def get_item():
+    return {"message": f"Hey, your name is {user_name}!"}
 
-@app.post("/items/{item_id}")
-def update_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
+@app.put("/user")
+def update_item(user: name):
+    user_name = user.name
+    return {"message": f"Your name is now {user_name}!"}
+
+@app.delete("/user")
+def delete_item():
+    user_name = None
+    return {"message" : "User name deleted"}
