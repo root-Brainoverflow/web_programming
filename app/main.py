@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+#from pydantic import BaseModel
 
 import requests
 
 app = FastAPI()
 
-user_name = None
+#user_name = None
 
 
 @app.get("/")
@@ -14,7 +14,7 @@ def root():
     
     contents = requests.get(URL).text
 
-    return { "message": contents}
+    return { "message": contents }
 
 @app.get("/home")
 def home():
